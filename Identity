@@ -1,0 +1,82 @@
+public class Student {
+    private int studentID;
+    private String firstName;
+    private String lastName;
+    
+    public Student(int sID, String fn, String ln)
+    {
+        studentID = sID;
+        firstName = fn;
+        lastName = ln; 
+    }
+    
+    public String toString()
+    {
+        return String.format(" %d %s %s", studentID, firstName, lastName);
+    } 
+}
+public class Undergraduate extends Student{
+    private String major;
+    private double gpa;
+ 
+    public Undergraduate(int sID, String fn, String ln, String m, double g)
+    {
+        super(sID, fn, ln);
+        major = m;
+        gpa = g;
+    }
+    
+    public String toString()
+    {
+        return String.format(" %s %s %5.2f", super.toString(), major, gpa);
+    }
+}
+public class Graduate extends Student{
+    private String major;
+    private double GMATScore;
+    
+    public Graduate(int sID, String fn, String ln, String m, double g)
+    {
+        super(sID, fn, ln);
+        major = m;
+        GMATScore = g;
+        
+    }
+    
+    public String toString()
+    {
+        return String.format(" %s %s %4.1f", super.toString(), major, GMATScore);
+    }
+     
+        
+        Undergraduate bella = new Undergraduate(123, "Bella", "Ranida", "Physics", 3.45);
+        //System.out.println(bella.toString());
+        
+        Graduate mohammed = new Graduate(324, "Mohammed", "Imam", "Finance", 5.00);
+        //System.out.println(mohammed.toString());
+        
+        Undergraduate faisal= new Undergraduate(263, "Faisal", "Aram", "Physics", 4.00);
+        //System.out.println(faisal.toString());
+        
+        Graduate katya = new Graduate(618, "Katya", "Alexsander", "Physics", 5.50);
+        //System.out.println(katya.toString());
+        
+        Undergraduate william = new Undergraduate(626, "Willaim", "Grimm", "Economics", 2.50);
+        //System.out.println(william.toString());
+        
+        Graduate nazanin = new Graduate(324, "Nazanin", "Faraj", "Theatre", 5.80);
+        //System.out.println(nazanin.toString());
+        
+        Student [] course = new Student [6];
+        course[0] = bella;
+        course[1] = mohammed;
+        course[2] = faisal;
+        course[3] = katya;
+        course[4] = william;
+        course[5] = nazanin;
+        
+        for(int i = 0; i < course.length; i++)
+            System.out.println(course[i].toString());
+        
+    }
+}
